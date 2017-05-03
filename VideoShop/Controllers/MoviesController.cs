@@ -72,5 +72,23 @@ namespace VideoShop.Controllers
 
             return RedirectToAction("Index", "Movies");
         }
+
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
+            if (movie == null)
+            {
+                HttpNotFound();
+            }
+
+            var viewModel = new MovieFormViewModel()
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToList()
+            };
+
+            return View("MovieForm", viewModel);
+        }
     }
 }
