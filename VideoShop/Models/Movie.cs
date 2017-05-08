@@ -14,6 +14,7 @@ namespace VideoShop.Models
         
         public Genre Genre { get; set; }
 
+        [Required]
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
@@ -24,7 +25,9 @@ namespace VideoShop.Models
         [Required]
         public DateTime DateAdded { get; set; }
 
+        [Required]
+        [Range(1, 20)]
         [Display(Name = "Number in Stock")]
-        public int NumberInStock { get; set; }
+        public byte NumberInStock { get; set; }
     }
 }

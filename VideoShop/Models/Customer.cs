@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace VideoShop.Models
 {
@@ -14,14 +11,15 @@ namespace VideoShop.Models
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Display(Name = "Date of Birth")]
-        public DateTime? BirthDate { get; set; }
-
         public bool IsSubscribedToNewsletter { get; set; }
 
         public MembershipType MembershipType { get; set; }
 
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; } // Entity Framework recongnizes this convention (MembershipTypeId) and treats this property as a Foreign Key.
+
+        [Display(Name = "Date of Birth")]
+        [Min18YearsIfAMember]
+        public DateTime? BirthDate { get; set; }
     }
 }
