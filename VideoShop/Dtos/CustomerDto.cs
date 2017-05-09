@@ -16,7 +16,7 @@ namespace VideoShop.Dtos
 
         public byte MembershipTypeId { get; set; } // Entity Framework recongnizes this convention (MembershipTypeId) and treats this property as a Foreign Key.
 
-        [Min18YearsIfAMember]
+        //[Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
     }
 }
