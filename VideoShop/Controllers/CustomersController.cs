@@ -68,9 +68,7 @@ namespace VideoShop.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList(); // the ToList() method will immediately execute the query to the database to return the list of customers, otherwise the query would not have been executed until we iterated over the customers in the view.
-
-            return View(customers);
+            return View();
         }
 
         public ActionResult Details(int id)
