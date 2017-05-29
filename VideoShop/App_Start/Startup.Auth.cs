@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Google;
 using Owin;
+using System;
+using System.Configuration;
 using VideoShop.Models;
 
 namespace VideoShop
@@ -55,8 +55,8 @@ namespace VideoShop
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "263685174037480",
-               appSecret: "3a7626728be357536b819e60364cfa02");
+               appId: ConfigurationManager.AppSettings["FacebookAppId"],
+               appSecret: ConfigurationManager.AppSettings["FacebookAppSecret"]);
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{
